@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Love Tester</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<style type="text/css">
+		body {
+			background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("love.jpeg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			width: 100%;
+			height: 100vh;
+			position: relative;
+			overflow: hidden;
+		}
+
+		header {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<div class="card w-50 text-center m-auto">
+			<div style="transition: 0.4s;" class="card-header bg-danger text-white">💌 Love Tester</div>
+			<div class="card-body">
+				<form class="form-inline w-75 m-auto">
+					<div class="form-group mb-3">
+						<input autocomplete="off" type="text" id="name" class="form-control text-center"
+							placeholder="Your Name">
+					</div>
+					<div class="form-group">
+						<input autocomplete="off" type="text" id="lovename" class="form-control text-center mb-3"
+							placeholder="Love Name">
+					</div>
+				</form>
+				<div class="w-50">
+					<button onclick="checkLovePer()" class="btn w-50 btn-success">Click</button>
+				</div>
+				<br>
+			</div>
+			<div class="card-footer">God Bless Your RelationShip</div>
+		</div>
+	</header>
+
+	<script type="text/javascript">
+		function checkLovePer() {
+			var LoverData = document.querySelector(".card-header");
+			var name1 = document.querySelector("#name").value;
+			var loveName = document.querySelector("#lovename").value;
+			if (name1 == "" || loveName == "") {
+				LoverData.innerHTML = "🔥  Please Fill in All Fields";
+				setTimeout(function () {
+					LoverData.innerHTML = "💌 Love Tester";
+				}, 5000);
+			} else {
+				var loveData = Math.floor(Math.random() * 100) + "%";
+				LoverData.innerHTML = `${name1} Love ${loveName} ${loveData}`;
+				setTimeout(function () {
+					LoverData.innerHTML = "💌 Love Tester";
+				}, 5000);
+				name1.value = "";
+				loveName.value = "";
+			}
+		}
+	</script>
+</body>
+
+</html>
